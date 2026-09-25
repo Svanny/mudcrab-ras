@@ -19,6 +19,27 @@
       aria-hidden="true"
     >
       <defs>
+        <symbol id="flow-water" viewBox="0 0 24 24">
+          <path d="M12 3c-2.5 3.5-7 8-7 11a7 7 0 0 0 14 0c0-3-4.5-7.5-7-11Z" />
+          <path d="M8.5 14.5a3.5 3.5 0 0 0 3.5 3.5" />
+        </symbol>
+        <symbol id="flow-waste" viewBox="0 0 24 24">
+          <path d="M12 3v10m-4-4 4 4 4-4M3 14l3 7h12l3-7M6 17h12" />
+        </symbol>
+        <symbol id="flow-electrical" viewBox="0 0 24 24">
+          <path d="m13 2-9 12h7l-1 8L20 9h-7Z" />
+        </symbol>
+        <symbol id="flow-air" viewBox="0 0 24 24">
+          <path
+            d="M3 8h11a3 3 0 1 0-3-3M3 12h15a3 3 0 1 1-3 3M3 16h5a3 3 0 1 1-3 3"
+          />
+        </symbol>
+        <symbol id="flow-all" viewBox="0 0 24 24">
+          <path d="m12 3 9 5-9 5-9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5" />
+        </symbol>
+        <symbol id="control-chevron" viewBox="0 0 16 16">
+          <path d="m4 6 4 4 4-4" />
+        </symbol>
         <symbol id="view-overview" viewBox="0 0 24 24">
           <path d="m12 3 9 5-9 5-9-5Z" fill="currentColor" fill-opacity=".16" />
           <path d="m12 3 9 5v9l-9 5-9-5V8Zm0 10 9-5m-9 5L3 8m9 5v9" />
@@ -48,34 +69,34 @@
       </section>
       <nav class="flow-nav" aria-label="Flow layers">
         <button class="flow-tab" data-mode="water" aria-pressed="true">
-          <span class="tab-index">01</span
-          ><span class="flow-dot water"></span>Water<span class="tab-desc"
-            >Recirculation</span
-          >
+          <svg class="flow-icon" aria-hidden="true">
+            <use href="#flow-water" />
+          </svg>
+          <span>Water</span>
         </button>
         <button class="flow-tab" data-mode="waste" aria-pressed="false">
-          <span class="tab-index">02</span
-          ><span class="flow-dot waste"></span>Waste<span class="tab-desc"
-            >Discharge</span
-          >
+          <svg class="flow-icon" aria-hidden="true">
+            <use href="#flow-waste" />
+          </svg>
+          <span>Waste</span>
         </button>
         <button class="flow-tab" data-mode="electrical" aria-pressed="false">
-          <span class="tab-index">03</span
-          ><span class="flow-dot electrical"></span>Electrical<span
-            class="tab-desc"
-            >Functional supply</span
-          >
+          <svg class="flow-icon" aria-hidden="true">
+            <use href="#flow-electrical" />
+          </svg>
+          <span>Electrical</span>
         </button>
         <button class="flow-tab" data-mode="air" aria-pressed="false">
-          <span class="tab-index">04</span><span class="flow-dot air"></span>Air
-          + ozone<span class="tab-desc">Gas services</span>
+          <svg class="flow-icon" aria-hidden="true">
+            <use href="#flow-air" />
+          </svg>
+          <span>Air + ozone</span>
         </button>
-        <button
-          class="flow-tab overview-tab"
-          data-mode="all"
-          aria-pressed="false"
-        >
-          <span aria-hidden="true">⊞</span> All layers
+        <button class="flow-tab" data-mode="all" aria-pressed="false">
+          <svg class="flow-icon" aria-hidden="true">
+            <use href="#flow-all" />
+          </svg>
+          <span>All layers</span>
         </button>
       </nav>
       <div class="workspace">
@@ -120,7 +141,7 @@
                   viewBox="0 0 16 16"
                   aria-hidden="true"
                 >
-                  <path d="m4 6 4 4 4-4" />
+                  <use href="#control-chevron" />
                 </svg>
               </button>
               <div
@@ -212,15 +233,17 @@
               step="25"
             />
           </div>
-          <p class="micro-note" id="motion-note">
-            Marker speed is illustrative.
-          </p>
           <div class="path-section">
-            <label class="eyebrow" for="route">TRACE A CONNECTION</label
-            ><select id="route">
-              <option value="">All connections</option>
-            </select>
-            <div id="connection-detail" aria-live="polite">
+            <label class="eyebrow" for="route">TRACE A CONNECTION</label>
+            <div class="select-control">
+              <select id="route">
+                <option value="">All connections</option>
+              </select>
+              <svg class="select-chevron" aria-hidden="true">
+                <use href="#control-chevron" />
+              </svg>
+            </div>
+            <div id="connection-detail" aria-live="polite" hidden>
               <p id="route-detail"></p>
               <p class="source-ref" id="route-source"></p>
               <button id="clear-selection" hidden>
@@ -230,10 +253,15 @@
           </div>
           <details class="equipment-register">
             <summary>Inspect equipment</summary>
-            <label class="sr-only" for="equipment">Equipment</label
-            ><select id="equipment">
-              <option value="">Choose a component</option>
-            </select>
+            <label class="sr-only" for="equipment">Equipment</label>
+            <div class="select-control">
+              <select id="equipment">
+                <option value="">Choose a component</option>
+              </select>
+              <svg class="select-chevron" aria-hidden="true">
+                <use href="#control-chevron" />
+              </svg>
+            </div>
           </details>
           <div class="display-options">
             <label

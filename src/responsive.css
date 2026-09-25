@@ -5,17 +5,6 @@
   .inspector {
     padding: 30px;
   }
-  .tab-desc {
-    display: block;
-  }
-  .flow-tab {
-    align-items: flex-start;
-    padding-top: 15px;
-  }
-  .overview-tab {
-    align-items: center;
-    padding-top: 12px;
-  }
   .inspector h2 {
     font-size: 28px;
   }
@@ -40,9 +29,6 @@
     font-size: 12px;
     padding: 12px;
     gap: 6px;
-  }
-  .tab-index {
-    margin-right: 1px;
   }
   .page-footer p {
     display: none;
@@ -73,25 +59,20 @@
     letter-spacing: -0.9px;
   }
   .flow-nav {
-    grid-template-columns: repeat(4, 1fr) 46px;
+    gap: 6px;
     margin-bottom: 12px;
   }
   .flow-tab {
-    font-size: 11px;
-    min-height: 57px;
-    padding: 10px 4px;
-    justify-content: center;
-    gap: 5px;
+    flex-direction: column;
+    font-size: clamp(10px, 2.1vw, 12px);
+    min-height: 72px;
+    padding: 9px 3px;
+    gap: 7px;
   }
-  .tab-index {
-    display: none;
-  }
-  .overview-tab {
-    font-size: 0;
-  }
-  .overview-tab > span {
-    margin: 0;
-    font-size: 23px;
+  .flow-tab > span {
+    display: flex;
+    align-items: center;
+    min-height: 2.5em;
   }
   .workspace {
     display: flex;

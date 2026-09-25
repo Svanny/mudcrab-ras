@@ -1,4 +1,5 @@
 import "./style.css";
+import "./flow-controls.css";
 import "./camera-controls.css";
 import "./responsive.css";
 import atlas from "./data/atlas.json";
@@ -38,6 +39,7 @@ function selectEquipment(key) {
   viewer?.select(key);
   if (key) {
     const data = atlas.equipment[key];
+    $("connection-detail").hidden = false;
     $("route-detail").textContent = `${data[0]} — ${data[1]}`;
     $("route-source").textContent = data[2];
   } else updateConnection();
@@ -45,11 +47,8 @@ function selectEquipment(key) {
 
 function updateConnection() {
   const route = atlas.routes.find((r) => r.key === routeKey);
-  $("route-detail").textContent = route
-    ? route.detail
-    : mode === "all"
-      ? "Select a layer or connection to see its role. Click an equipment label to inspect the component."
-      : `Showing all ${atlas.routes.filter((r) => r.layer === mode).length} connections. Choose one above to trace its complete path.`;
+  $("connection-detail").hidden = !route;
+  $("route-detail").textContent = route ? route.detail : "";
   $("route-source").textContent = route ? `SOURCE / ${route.source}` : "";
 }
 
@@ -192,9 +191,6 @@ document.addEventListener("keydown", (event) => {
 reducedMotion.addEventListener("change", (event) => {
   if (event.matches) setPlaying(false);
 });
-if (reducedMotion.matches)
-  $("motion-note").textContent =
-    "Reduced motion enabled. Play only when you choose.";
 
 for (const hold of atlas.holds) {
   const details = document.createElement("details");

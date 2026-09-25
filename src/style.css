@@ -70,14 +70,36 @@ canvas:focus-visible {
   outline-offset: 4px;
 }
 select {
+  display: block;
   border: 1px solid #c4cfce;
   border-radius: 4px;
-  padding: 10px 30px 10px 10px;
+  padding: 10px 40px 10px 12px;
   background: #fff;
   color: var(--ink);
   max-width: 100%;
   min-height: 42px;
   font-size: 13px;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  text-overflow: ellipsis;
+}
+.select-control {
+  position: relative;
+}
+.select-chevron {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
 }
 input {
   accent-color: var(--accent);
@@ -137,84 +159,6 @@ h1 {
   font-weight: 500;
   line-height: 1.15;
   text-wrap: balance;
-}
-.flow-nav {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr) 0.85fr;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 18px;
-}
-.flow-tab {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 0;
-  border-radius: 0;
-  min-height: 66px;
-  padding: 12px 15px;
-  background: transparent;
-  font-size: 14px;
-}
-.flow-tab:hover {
-  background: #e9eeea;
-}
-.flow-tab[aria-pressed="true"] {
-  background: #fff;
-}
-.flow-tab[aria-pressed="true"]:after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--accent);
-}
-.tab-index {
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 10px;
-  font-weight: 400;
-  color: #7a8a8d;
-  margin-right: 4px;
-}
-.tab-desc {
-  position: absolute;
-  top: 44px;
-  left: 57px;
-  font-size: 10px;
-  color: #748387;
-  font-weight: 400;
-  display: none;
-}
-.flow-dot {
-  display: inline-block;
-  border-radius: 50%;
-  width: 7px;
-  height: 7px;
-  flex-shrink: 0;
-}
-.water {
-  background: #0871eb;
-}
-.waste {
-  background: #dc4518;
-}
-.electrical {
-  background: #b57600;
-}
-.air {
-  background: #009d77;
-}
-.overview-tab {
-  justify-content: center;
-  border-left: 1px solid var(--line);
-}
-.overview-tab > span {
-  font-size: 22px;
-  margin-right: 4px;
-  font-weight: 400;
 }
 .workspace {
   display: grid;
@@ -460,10 +404,7 @@ h1 {
   font-size: 9px;
 }
 .path-section select {
-  width: 100%;
   font-size: 11px;
-  text-overflow: ellipsis;
-  padding-right: 24px;
 }
 #connection-detail {
   font-size: 12px;
@@ -661,8 +602,9 @@ dialog::backdrop {
   cursor: pointer;
   padding-top: 8px;
 }
-.equipment-register select {
-  width: 100%;
+.equipment-register .select-control {
   margin-top: 6px;
+}
+.equipment-register select {
   font-size: 12px;
 }
