@@ -1,0 +1,11 @@
+# Open this file in FreeCAD, then Macro > Execute (F6).
+# Keep ras_model/ beside this macro. No addons or network access required.
+import sys
+from pathlib import Path
+import FreeCADGui as Gui
+
+_root = Path(__file__).resolve().parent
+if str(_root) not in sys.path:
+    sys.path.insert(0,str(_root))
+from ras_model.app import launch
+Gui.ras_explorer = launch(_root)

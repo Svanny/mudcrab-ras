@@ -1,0 +1,16 @@
+Tag,Equipment,Verified specification / limitation,Source PDF pages,Status
+PKG,LFS-10M package,"6-10 m3/h throughput; 1.8 kW INPUT; 220 V AC, 50 Hz.","M1,3-4",C
+PKG-DIM,Manufacturer envelope,2000 x 1210 x 2200 mm; installation clearances not supplied.,M3,C / H07
+NOZZLES,Three skid interfaces,Inlet / outlet / common waste: diameter 50 mm. OD/ID/nominal standard not specified.,M3,C / H10
+P-101,Front outlet-duty pump,STP50; 220-240 V; 50 Hz; single phase; input 0.37 kW; output 0.25 kW; rated 2.0 A; IP55.,E6-7; duty M4-5/E10,C plate / R duty
+P-101-H,STP50 hydraulic ratings,Rated 6 m3/h at rated 7 m head; maximum 13 m3/h and maximum 11 m head are separate limits.,E6,C
+P-101-X,STP50 additional plate data,2900 r/min; class F; service factor 1.0; 7 uF / 450 V capacitor; ambient 40 C; water maximum 50 C; auto-reset thermal protector.,E6,C
+P-102,Rear inlet-duty pump,Two pump/basket assemblies observed. Rear pump ratings cannot be reliably read.,"E7,10; M4-5",R duty / H01
+F-101,Sand filter,Pressure sand filter and six-position multiport photographed; manual charge 22 kg sand.,"M4,6-7; E4-5,13",C
+SK-101,Protein skimmer,"Venturi, gas-intake valve/tube, mixing and reaction chambers, foam tube/collection, water-level adjustment.",M7-8; E10,C
+BIO-1/2,Biological chambers,Manual names BIO-1 and BIO-2; air service to BIO-2; media/volume not allocated.,"M4,14-15",C / H02
+UV-101A/B/C,UV assemblies,"Three photographed assemblies; manual lamp life 8,000 h; full individual wattage cannot be read.",E11-12; M8,C / H03
+A-101,External aerator,LP-100 model label; warning mentions thermal cutout and automatic restart; no full rating plate visible.,E8-9,C / H04
+OZ-101,Ozone generator,"Local timer, ozone/air switches and indicators, current/voltage display; no g/h or input-W nameplate established.",E3,C / H05
+CP-101,Control-panel face,"Six indicator lenses, five selector knobs, one UV controller/adjustment window.",M16; E10,C / H06
+CTRL,Manual branch register,KA/Pump1; KA/Pump2; KM/Skimmer; KT then KA/Valve; KA/Ozone; KT then KM/unnamed; KM/unnamed.,M16,C labels / H06

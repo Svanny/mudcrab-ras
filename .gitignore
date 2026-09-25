@@ -1,0 +1,19 @@
+node_modules/
+dist/
+tmp/
+test-results/
+playwright-report/
+.DS_Store
+.env*
+*.FCBak
+*.FCStd1
+__pycache__/
+*.pyc
+# Original supplied references are not redistributed under this project's license.
+/*.pdf
+/*.dwg
+/*.zip
+# Native deliverables remain in the workspace; selected source/model files are tracked.
+/output/*.zip
+/output/ras3d/previews/
+/output/ras3d/validation/

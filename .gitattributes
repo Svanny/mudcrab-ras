@@ -1,0 +1,6 @@
+* text=auto
+*.csv text eol=lf
+*.py text eol=lf
+*.FCStd binary
+*.mesh binary
+*.zip binary
