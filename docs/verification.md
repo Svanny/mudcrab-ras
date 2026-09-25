@@ -18,11 +18,11 @@ The initial production build was exercised in the Codex Chromium browser. Checks
 | --- | --- |
 | Layer switching | 12 water, 8 waste, 6 electrical, 3 gas connections; overview shows all 29 |
 | Isolated routes | Exactly one visible route; detail/source and URL match |
-| Animation | Markers advance; Pause stops advancement and tour; speed updates |
+| Animation | Starts automatically on model load; Pause stops advancement and tour; speed updates |
 | Tour | Water → Waste → Electrical → Air, every nine visible seconds |
 | Equipment | Labels and register show component description and evidence |
 | Display | Label toggle hides/shows annotations; transparency changes equipment |
-| Cameras | Isometric, treatment skid, top and front; zoom and reset |
+| Cameras | Icon menu for isometric, treatment skid, top and front; centered chevron; selection, arrow keys, Enter, Escape, outside dismissal, zoom and reset |
 | Evidence | Modal contains all 12 gaps and can close by button or Escape |
 | Navigation | Hash links restore selection; Back restores previous layer/route |
 | Responsive | No horizontal page overflow; controls remain usable in a stacked mobile layout |
@@ -33,4 +33,8 @@ The normal water view has about 36,236 rendered triangles and 69 draw calls; all
 
 For diagnostics, append `?debug` before the hash. The canvas exposes a `data-stats` JSON attribute with frame count, phase, visible route IDs, draw calls and triangles. Diagnostic DOM writes are disabled by default. Inspect these readings alongside console/network errors and responsive screenshots when changing the scene.
 
-Browser reduced-motion preferences keep the default paused state; changing to reduced motion stops active playback. Explicit Play remains available. Original engineering uncertainties are unchanged.
+Browser reduced-motion preferences override automatic playback and start paused; changing to reduced motion stops active playback. Explicit Play remains available. Original engineering uncertainties are unchanged.
+
+## Simplified interface update
+
+The header was removed, the page title changed to “Recirculating Aquaculture System” without introductory copy, and Source/FreeCAD links moved to the footer. The camera selector now uses an SVG icon for each preset, with a chevron centered by a grid layout. Browser checks verified automatic playback, pause, all four camera selections, matching selected icons, keyboard selection, Escape, outside dismissal, reset and Tab focus. At 320 CSS pixels wide, the camera toolbar fits without horizontal overflow. The asset budget remains approximately 352 KiB compressed.

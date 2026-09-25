@@ -24,9 +24,6 @@
   }
 }
 @media (max-width: 1100px) {
-  .masthead {
-    padding: 0 24px;
-  }
   main {
     padding: 24px 24px 0;
   }
@@ -47,10 +44,6 @@
   .tab-index {
     margin-right: 1px;
   }
-  .intro-note {
-    font-size: 12px;
-    margin-right: 0;
-  }
   .page-footer p {
     display: none;
   }
@@ -69,49 +62,15 @@
   }
 }
 @media (max-width: 760px) {
-  .masthead {
-    height: 70px;
-    padding: 0 18px;
-  }
-  .masthead-links {
-    gap: 18px;
-  }
-  .masthead-links .edition {
-    display: none;
-  }
-  .masthead-links a:last-child {
-    padding: 10px;
-  }
-  .brand {
-    font-size: 14px;
-    gap: 9px;
-    letter-spacing: 1.6px;
-  }
-  .brand small {
-    font-size: 8px;
-    letter-spacing: 0.1px;
-  }
-  .brand-mark {
-    width: 32px;
-    height: 34px;
-    font-size: 18px;
-  }
   main {
     padding: 23px 14px 0;
   }
   .intro {
     margin-bottom: 22px;
   }
-  .intro .eyebrow {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
   h1 {
-    font-size: 38px;
-    letter-spacing: -1.6px;
-  }
-  .intro-note {
-    display: none;
+    font-size: clamp(26px, 6.5vw, 36px);
+    letter-spacing: -0.9px;
   }
   .flow-nav {
     grid-template-columns: repeat(4, 1fr) 46px;
@@ -168,11 +127,8 @@
   .view-tools {
     bottom: 40px;
     left: 16px;
+    right: 16px;
     gap: 3px;
-  }
-  .view-tools button,
-  .view-tools select {
-    min-height: 44px;
   }
   .equipment-label {
     font-size: 8px;
@@ -221,14 +177,15 @@
     padding: 17px 0 22px;
     gap: 8px 20px;
   }
+  .footer-links {
+    justify-content: center;
+    width: 100%;
+  }
   .evidence-note summary {
     min-height: 44px;
   }
   .speed-row input {
     height: 24px;
-  }
-  .stage .view-tools select {
-    font-size: 12px;
   }
   dialog {
     padding: 24px 20px;
@@ -245,9 +202,6 @@
   }
   .path-section label {
     font-size: 10px;
-  }
-  .view-tools button {
-    width: 44px;
   }
   .evidence-note .text-button {
     min-height: 44px;

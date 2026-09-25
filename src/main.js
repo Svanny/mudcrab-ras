@@ -1,7 +1,9 @@
 import "./style.css";
+import "./camera-controls.css";
 import "./responsive.css";
 import atlas from "./data/atlas.json";
 import { MODES, readLocation } from "./paths.js";
+import { createCameraControls } from "./camera-controls.js";
 
 const $ = (id) => document.getElementById(id);
 const accents = {
@@ -59,7 +61,7 @@ function setView(nextMode, nextRoute = "", writeUrl = true, replace = false) {
   const routes = atlas.routes.filter((r) => mode === "all" || r.layer === mode);
   document.documentElement.style.setProperty("--accent", accents[mode]);
   document.body.dataset.mode = mode;
-  document.title = `${mode === "all" ? "Overview" : mode[0].toUpperCase() + mode.slice(1)} — Mudcrab RAS atlas`;
+  document.title = `${mode === "all" ? "Overview" : mode[0].toUpperCase() + mode.slice(1)} — Recirculating Aquaculture System`;
   document
     .querySelectorAll(".flow-tab")
     .forEach((b) => b.setAttribute("aria-pressed", b.dataset.mode === mode));
@@ -155,13 +157,12 @@ $("show-labels").addEventListener("change", () =>
 $("ghost").addEventListener("change", () =>
   viewer?.setGhost($("ghost").checked),
 );
-$("camera").addEventListener("change", () => viewer?.camera($("camera").value));
+const cameraControls = createCameraControls($("camera-picker"), (value) =>
+  viewer?.camera(value),
+);
 $("zoom-in").addEventListener("click", () => viewer?.zoom(1.2));
 $("zoom-out").addEventListener("click", () => viewer?.zoom(1 / 1.2));
-$("reset").addEventListener("click", () => {
-  $("camera").value = "overview";
-  viewer?.camera("overview");
-});
+$("reset").addEventListener("click", () => cameraControls.reset());
 $("retry").addEventListener("click", () => location.reload());
 window.addEventListener("hashchange", () => {
   const state = readLocation(location.hash, atlas.routes);
@@ -174,6 +175,7 @@ document.addEventListener("keydown", (event) => {
     event.metaKey ||
     event.ctrlKey ||
     /INPUT|SELECT|TEXTAREA/.test(event.target.tagName) ||
+    event.target.closest('[role="menu"]') ||
     $("evidence-dialog").open
   )
     return;
@@ -247,6 +249,7 @@ requestAnimationFrame(() =>
       viewer.setGhost($("ghost").checked);
       viewer.setLabels($("show-labels").checked);
       viewer.setSpeed(Number($("speed").value) / 100);
+      viewer.camera(cameraControls.value);
       viewer.onTick((dt) => {
         if (!tour) return;
         tourTime += dt;
@@ -259,6 +262,7 @@ requestAnimationFrame(() =>
       $("viewport").setAttribute("aria-busy", "false");
       $("play").disabled = false;
       $("tour").disabled = false;
+      setPlaying(!reducedMotion.matches);
       document.body.dataset.ready = "true";
       updateStatus();
       if (new URLSearchParams(location.search).has("debug")) {

@@ -8,11 +8,12 @@ Switch between **water**, **waste**, **electrical**, **air + ozone**, or all lay
 
 ## Use the explorer
 
-- Select a layer, then **Play flow**. Animation starts only on request.
+- Animation starts automatically when the model loads. Select a layer to follow its service, or use **Pause flow** to stop it. Reduced-motion preferences start the viewer paused.
 - Use **Trace a connection** to isolate one route. URLs preserve the selected layer and route for sharing.
 - **Tour all** cycles through the four services every nine seconds. **Pause flow** stops both the tour and markers.
 - Drag to orbit, scroll/pinch to zoom, and right-drag/two-finger drag to pan.
 - Click an equipment label or open **Inspect equipment** for descriptions and source references.
+- The camera menu shows an angle/focus icon for each preset. Use arrow keys to navigate, Enter to select, and Escape to dismiss it. Source and FreeCAD download links are in the footer.
 - Keyboard: **1–5** select layers. With the canvas focused, **Space** plays/pauses, **arrows** pan, **+ / −** zoom, and **Home** resets the view.
 - **Reading this schematic → View 12 evidence gaps** opens the audit register.
 

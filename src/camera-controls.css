@@ -1,0 +1,124 @@
+.icon-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.view-tools {
+  position: absolute;
+  z-index: 4;
+  bottom: 49px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  pointer-events: none;
+}
+.view-tools > * {
+  pointer-events: auto;
+}
+.view-tools > button {
+  width: 44px;
+  min-height: 44px;
+  flex: 0 0 44px;
+  font-size: 18px;
+  padding: 0;
+  background: #fffffff5;
+}
+.camera-picker {
+  position: relative;
+  width: 190px;
+  min-width: 0;
+}
+.camera-trigger {
+  display: grid;
+  grid-template-columns: 21px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  background: #fffffff5;
+  border-color: #cbd7d3;
+}
+.camera-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.view-icon {
+  display: block;
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.camera-chevron {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.camera-trigger[aria-expanded="true"] .camera-chevron {
+  transform: rotate(180deg);
+}
+.camera-menu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 214px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #cbd7d3;
+  border-radius: 6px;
+  box-shadow: 0 7px 25px #142e3626;
+}
+.camera-menu button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 44px;
+  border: 0;
+  padding: 9px 11px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 400;
+  background: transparent;
+}
+.camera-menu button:hover {
+  background: #eff4f1;
+}
+.camera-menu button[aria-checked="true"] {
+  color: #12634f;
+  background: #e9f4ee;
+  font-weight: 600;
+}
+.camera-menu button[aria-checked="true"]::after {
+  content: "✓";
+  margin-left: auto;
+}
+.camera-menu button:focus-visible {
+  outline-offset: -2px;
+}
+@media (max-width: 400px) {
+  .camera-trigger {
+    gap: 6px;
+    padding: 0 8px;
+    font-size: 11px;
+  }
+  .camera-picker {
+    flex: 1;
+  }
+}

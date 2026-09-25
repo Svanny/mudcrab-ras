@@ -3,37 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#142e36" />
+    <meta name="theme-color" content="#f4f5f1" />
     <meta
       name="description"
       content="Explore the water, waste, electrical and air services of a mudcrab recirculating aquaculture system in an open source, animated 3D schematic."
     />
-    <title>Mudcrab — RAS flow atlas</title>
+    <title>Recirculating Aquaculture System</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
     <a class="skip-link" href="#explorer">Skip to flow explorer</a>
-    <header class="masthead">
-      <a class="brand" href="./" aria-label="Mudcrab flow atlas home"
-        ><span class="brand-mark" aria-hidden="true">M<span>↗</span></span
-        ><span>MUDCRAB<small>Systems fieldnotes / 001</small></span></a
-      >
-      <div class="masthead-links">
-        <span class="edition">LFS-10M · RAS</span
-        ><a href="https://github.com/Svanny/mudcrab-ras">Source ↗</a
-        ><a href="./downloads/Mudcrab_RAS_FreeCAD.zip" download>FreeCAD ↓</a>
-      </div>
-    </header>
+    <svg
+      class="icon-defs"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="view-overview" viewBox="0 0 24 24">
+          <path d="m12 3 9 5-9 5-9-5Z" fill="currentColor" fill-opacity=".16" />
+          <path d="m12 3 9 5v9l-9 5-9-5V8Zm0 10 9-5m-9 5L3 8m9 5v9" />
+        </symbol>
+        <symbol id="view-skid" viewBox="0 0 24 24">
+          <path d="M3 8V3h5m8 0h5v5M3 16v5h5m8 0h5v-5" />
+          <path
+            d="m12 7 5 3v5l-5 3-5-3v-5Z"
+            fill="currentColor"
+            fill-opacity=".16"
+          />
+          <path d="m7 10 5 3 5-3m-5 3v5" />
+        </symbol>
+        <symbol id="view-top" viewBox="0 0 24 24">
+          <path d="M4 10h16v11H4Z" fill="currentColor" fill-opacity=".16" />
+          <path d="M12 2v5m-3-3 3 3 3-3M4 10h16v11H4Zm8 0v11M4 15.5h16" />
+        </symbol>
+        <symbol id="view-front" viewBox="0 0 24 24">
+          <path d="M10 4h11v16H10Z" fill="currentColor" fill-opacity=".16" />
+          <path d="M2 12h5m-3-3 3 3-3 3M10 4h11v16H10Zm0 8h11m-5.5-8v16" />
+        </symbol>
+      </defs>
+    </svg>
     <main id="explorer" tabindex="-1">
       <section class="intro" aria-labelledby="title">
-        <div>
-          <p class="eyebrow">RECIRCULATING AQUACULTURE SYSTEM</p>
-          <h1 id="title">Follow the flow<span>.</span></h1>
-        </div>
-        <p class="intro-note">
-          One system. Four essential services.<br />Explore the connections, one
-          layer at a time.
-        </p>
+        <h1 id="title">Recirculating Aquaculture System</h1>
       </section>
       <nav class="flow-nav" aria-label="Flow layers">
         <button class="flow-tab" data-mode="water" aria-pressed="true">
@@ -90,15 +101,84 @@
             >
           </div>
           <div class="view-tools" aria-label="Camera controls">
-            <label class="sr-only" for="camera">Camera view</label
-            ><select id="camera">
-              <option value="overview">Isometric</option>
-              <option value="skid">Treatment skid</option>
-              <option value="top">Top view</option>
-              <option value="front">Front view</option></select
-            ><button id="zoom-in" aria-label="Zoom in">+</button
-            ><button id="zoom-out" aria-label="Zoom out">−</button
-            ><button id="reset" aria-label="Reset camera">↺</button>
+            <div class="camera-picker" id="camera-picker">
+              <button
+                id="camera"
+                class="camera-trigger"
+                type="button"
+                aria-label="Camera view: Isometric"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-controls="camera-menu"
+              >
+                <svg class="view-icon" aria-hidden="true">
+                  <use href="#view-overview" />
+                </svg>
+                <span class="camera-label">Isometric</span>
+                <svg
+                  class="camera-chevron"
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                >
+                  <path d="m4 6 4 4 4-4" />
+                </svg>
+              </button>
+              <div
+                id="camera-menu"
+                class="camera-menu"
+                role="menu"
+                aria-label="Camera view"
+                hidden
+              >
+                <button
+                  type="button"
+                  role="menuitemradio"
+                  aria-checked="true"
+                  tabindex="-1"
+                  data-camera="overview"
+                >
+                  <svg class="view-icon" aria-hidden="true">
+                    <use href="#view-overview" /></svg
+                  ><span>Isometric</span>
+                </button>
+                <button
+                  type="button"
+                  role="menuitemradio"
+                  aria-checked="false"
+                  tabindex="-1"
+                  data-camera="skid"
+                >
+                  <svg class="view-icon" aria-hidden="true">
+                    <use href="#view-skid" /></svg
+                  ><span>Treatment skid</span>
+                </button>
+                <button
+                  type="button"
+                  role="menuitemradio"
+                  aria-checked="false"
+                  tabindex="-1"
+                  data-camera="top"
+                >
+                  <svg class="view-icon" aria-hidden="true">
+                    <use href="#view-top" /></svg
+                  ><span>Top view</span>
+                </button>
+                <button
+                  type="button"
+                  role="menuitemradio"
+                  aria-checked="false"
+                  tabindex="-1"
+                  data-camera="front"
+                >
+                  <svg class="view-icon" aria-hidden="true">
+                    <use href="#view-front" /></svg
+                  ><span>Front view</span>
+                </button>
+              </div>
+            </div>
+            <button id="zoom-in" aria-label="Zoom in">+</button>
+            <button id="zoom-out" aria-label="Zoom out">−</button>
+            <button id="reset" aria-label="Reset camera">↺</button>
           </div>
           <div class="stage-bottom">
             <span class="gesture-hint"
@@ -187,9 +267,13 @@
           groups</span
         >
         <p>A process schematic. Geometry and paths are representative.</p>
-        <a href="https://github.com/Svanny/mudcrab-ras/blob/main/LICENSE"
-          >Open source · MIT ↗</a
-        >
+        <nav class="footer-links" aria-label="Project links">
+          <a href="https://github.com/Svanny/mudcrab-ras">Source ↗</a>
+          <a href="./downloads/Mudcrab_RAS_FreeCAD.zip" download>FreeCAD ↓</a>
+          <a href="https://github.com/Svanny/mudcrab-ras/blob/main/LICENSE"
+            >MIT license ↗</a
+          >
+        </nav>
       </footer>
       <noscript
         ><p class="no-script">
