@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#142e36" />
+    <meta
+      name="description"
+      content="Explore the water, waste, electrical and air services of a mudcrab recirculating aquaculture system in an open source, animated 3D schematic."
+    />
+    <title>Mudcrab — RAS flow atlas</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#explorer">Skip to flow explorer</a>
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="Mudcrab flow atlas home"
+        ><span class="brand-mark" aria-hidden="true">M<span>↗</span></span
+        ><span>MUDCRAB<small>Systems fieldnotes / 001</small></span></a
+      >
+      <div class="masthead-links">
+        <span class="edition">LFS-10M · RAS</span
+        ><a href="https://github.com/Svanny/mudcrab-ras">Source ↗</a
+        ><a href="./downloads/Mudcrab_RAS_FreeCAD.zip" download>FreeCAD ↓</a>
+      </div>
+    </header>
+    <main id="explorer" tabindex="-1">
+      <section class="intro" aria-labelledby="title">
+        <div>
+          <p class="eyebrow">RECIRCULATING AQUACULTURE SYSTEM</p>
+          <h1 id="title">Follow the flow<span>.</span></h1>
+        </div>
+        <p class="intro-note">
+          One system. Four essential services.<br />Explore the connections, one
+          layer at a time.
+        </p>
+      </section>
+      <nav class="flow-nav" aria-label="Flow layers">
+        <button class="flow-tab" data-mode="water" aria-pressed="true">
+          <span class="tab-index">01</span
+          ><span class="flow-dot water"></span>Water<span class="tab-desc"
+            >Recirculation</span
+          >
+        </button>
+        <button class="flow-tab" data-mode="waste" aria-pressed="false">
+          <span class="tab-index">02</span
+          ><span class="flow-dot waste"></span>Waste<span class="tab-desc"
+            >Discharge</span
+          >
+        </button>
+        <button class="flow-tab" data-mode="electrical" aria-pressed="false">
+          <span class="tab-index">03</span
+          ><span class="flow-dot electrical"></span>Electrical<span
+            class="tab-desc"
+            >Functional supply</span
+          >
+        </button>
+        <button class="flow-tab" data-mode="air" aria-pressed="false">
+          <span class="tab-index">04</span><span class="flow-dot air"></span>Air
+          + ozone<span class="tab-desc">Gas services</span>
+        </button>
+        <button
+          class="flow-tab overview-tab"
+          data-mode="all"
+          aria-pressed="false"
+        >
+          <span aria-hidden="true">⊞</span> All layers
+        </button>
+      </nav>
+      <div class="workspace">
+        <section class="stage" aria-label="Interactive 3D schematic">
+          <div class="stage-top">
+            <span class="stage-caption"
+              ><span class="status-dot"></span
+              ><span id="stage-title">01 / WATER</span></span
+            ><span class="scale-note">SCHEMATIC · NOT TO SCALE</span>
+          </div>
+          <div id="viewport" aria-busy="true">
+            <div id="labels" aria-label="Equipment labels"></div>
+          </div>
+          <div id="loading" class="loading" role="status">
+            <span class="loader"></span>Preparing the 3D atlas…
+          </div>
+          <div id="scene-error" class="scene-error" hidden>
+            <h2>3D view unavailable</h2>
+            <p id="error-message">Your browser could not start the viewer.</p>
+            <button id="retry">Try again</button
+            ><a href="./downloads/Mudcrab_RAS_FreeCAD.zip" download
+              >Download the FreeCAD model</a
+            >
+          </div>
+          <div class="view-tools" aria-label="Camera controls">
+            <label class="sr-only" for="camera">Camera view</label
+            ><select id="camera">
+              <option value="overview">Isometric</option>
+              <option value="skid">Treatment skid</option>
+              <option value="top">Top view</option>
+              <option value="front">Front view</option></select
+            ><button id="zoom-in" aria-label="Zoom in">+</button
+            ><button id="zoom-out" aria-label="Zoom out">−</button
+            ><button id="reset" aria-label="Reset camera">↺</button>
+          </div>
+          <div class="stage-bottom">
+            <span class="gesture-hint"
+              >Drag to orbit · Scroll to zoom · Right-drag to pan</span
+            ><span id="render-status" role="status" aria-live="polite"
+              >Loading model</span
+            >
+          </div>
+        </section>
+        <aside class="inspector" aria-label="Flow details and controls">
+          <div class="inspector-heading">
+            <p class="eyebrow" id="layer-kicker">WATER / 12 CONNECTIONS</p>
+            <h2 id="layer-title">Normal recirculation</h2>
+            <p id="layer-summary"></p>
+          </div>
+          <div class="transport">
+            <button id="play" class="primary" disabled aria-pressed="false">
+              <span id="play-icon" aria-hidden="true">▶</span>
+              <span id="play-text">Play flow</span></button
+            ><button id="tour" disabled aria-pressed="false">Tour all</button>
+          </div>
+          <div class="speed-row">
+            <label for="speed">Animation speed</label
+            ><output id="speed-value" for="speed">1×</output
+            ><input
+              id="speed"
+              type="range"
+              min="25"
+              max="200"
+              value="100"
+              step="25"
+            />
+          </div>
+          <p class="micro-note" id="motion-note">
+            Marker speed is illustrative.
+          </p>
+          <div class="path-section">
+            <label class="eyebrow" for="route">TRACE A CONNECTION</label
+            ><select id="route">
+              <option value="">All connections</option>
+            </select>
+            <div id="connection-detail" aria-live="polite">
+              <p id="route-detail"></p>
+              <p class="source-ref" id="route-source"></p>
+              <button id="clear-selection" hidden>
+                Clear equipment selection
+              </button>
+            </div>
+          </div>
+          <details class="equipment-register">
+            <summary>Inspect equipment</summary>
+            <label class="sr-only" for="equipment">Equipment</label
+            ><select id="equipment">
+              <option value="">Choose a component</option>
+            </select>
+          </details>
+          <div class="display-options">
+            <label
+              ><input id="show-labels" type="checkbox" checked /> Equipment
+              labels</label
+            ><label
+              ><input id="ghost" type="checkbox" checked /> Transparent
+              equipment</label
+            >
+          </div>
+          <details class="evidence-note">
+            <summary>
+              Reading this schematic <span aria-hidden="true">+</span>
+            </summary>
+            <p id="layer-note"></p>
+            <p>
+              M = equipment manual; E = reference photographs. C = confirmed
+              source observation; R = reconstruction. H01–H12 mark open evidence
+              gaps.
+            </p>
+            <button class="text-button" id="open-evidence">
+              View 12 evidence gaps ↗
+            </button>
+          </details>
+        </aside>
+      </div>
+      <footer class="page-footer">
+        <span
+          ><strong>29</strong> connections
+          <span class="footer-divider">/</span> <strong>12</strong> equipment
+          groups</span
+        >
+        <p>A process schematic. Geometry and paths are representative.</p>
+        <a href="https://github.com/Svanny/mudcrab-ras/blob/main/LICENSE"
+          >Open source · MIT ↗</a
+        >
+      </footer>
+      <noscript
+        ><p class="no-script">
+          Enable JavaScript to use the 3D explorer, or
+          <a href="./downloads/Mudcrab_RAS_FreeCAD.zip"
+            >download the native FreeCAD model</a
+          >.
+        </p></noscript
+      >
+    </main>
+    <dialog id="evidence-dialog" aria-labelledby="evidence-title">
+      <div class="dialog-top">
+        <div>
+          <p class="eyebrow">SOURCE TRANSPARENCY</p>
+          <h2 id="evidence-title">What remains unverified</h2>
+        </div>
+        <button id="close-evidence" aria-label="Close evidence gaps">×</button>
+      </div>
+      <p class="dialog-intro">
+        The schematic retains these gaps from the source audit. Selecting a
+        connection reveals its supporting page references.
+      </p>
+      <div id="holds"></div>
+      <p class="micro-note">
+        Original supplied manuals, photographs and drawings are not
+        redistributed. The source register preserves their page references.
+      </p>
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

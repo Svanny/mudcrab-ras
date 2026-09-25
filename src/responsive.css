@@ -1,0 +1,267 @@
+@media (min-width: 1500px) {
+  .workspace {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+  .inspector {
+    padding: 30px;
+  }
+  .tab-desc {
+    display: block;
+  }
+  .flow-tab {
+    align-items: flex-start;
+    padding-top: 15px;
+  }
+  .overview-tab {
+    align-items: center;
+    padding-top: 12px;
+  }
+  .inspector h2 {
+    font-size: 28px;
+  }
+  .inspector-heading > p:last-child {
+    font-size: 13px;
+  }
+}
+@media (max-width: 1100px) {
+  .masthead {
+    padding: 0 24px;
+  }
+  main {
+    padding: 24px 24px 0;
+  }
+  .workspace {
+    grid-template-columns: minmax(0, 1fr) 285px;
+  }
+  .inspector {
+    padding: 22px 18px;
+  }
+  .scale-note {
+    display: none;
+  }
+  .flow-tab {
+    font-size: 12px;
+    padding: 12px;
+    gap: 6px;
+  }
+  .tab-index {
+    margin-right: 1px;
+  }
+  .intro-note {
+    font-size: 12px;
+    margin-right: 0;
+  }
+  .page-footer p {
+    display: none;
+  }
+  .gesture-hint {
+    max-width: 230px;
+  }
+  .stage-top {
+    left: 18px;
+  }
+  .view-tools {
+    left: 18px;
+  }
+  .stage-bottom {
+    left: 18px;
+    right: 18px;
+  }
+}
+@media (max-width: 760px) {
+  .masthead {
+    height: 70px;
+    padding: 0 18px;
+  }
+  .masthead-links {
+    gap: 18px;
+  }
+  .masthead-links .edition {
+    display: none;
+  }
+  .masthead-links a:last-child {
+    padding: 10px;
+  }
+  .brand {
+    font-size: 14px;
+    gap: 9px;
+    letter-spacing: 1.6px;
+  }
+  .brand small {
+    font-size: 8px;
+    letter-spacing: 0.1px;
+  }
+  .brand-mark {
+    width: 32px;
+    height: 34px;
+    font-size: 18px;
+  }
+  main {
+    padding: 23px 14px 0;
+  }
+  .intro {
+    margin-bottom: 22px;
+  }
+  .intro .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  h1 {
+    font-size: 38px;
+    letter-spacing: -1.6px;
+  }
+  .intro-note {
+    display: none;
+  }
+  .flow-nav {
+    grid-template-columns: repeat(4, 1fr) 46px;
+    margin-bottom: 12px;
+  }
+  .flow-tab {
+    font-size: 11px;
+    min-height: 57px;
+    padding: 10px 4px;
+    justify-content: center;
+    gap: 5px;
+  }
+  .tab-index {
+    display: none;
+  }
+  .overview-tab {
+    font-size: 0;
+  }
+  .overview-tab > span {
+    margin: 0;
+    font-size: 23px;
+  }
+  .workspace {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+  .stage {
+    height: 56svh;
+    min-height: 350px;
+    max-height: 570px;
+    width: 100%;
+  }
+  .stage-top {
+    top: 17px;
+    left: 16px;
+    font-size: 9px;
+  }
+  .stage-bottom {
+    font-size: 9px;
+    bottom: 14px;
+    left: 16px;
+    right: 16px;
+  }
+  .gesture-hint {
+    font-size: 0;
+  }
+  .gesture-hint:after {
+    content: "Drag to orbit · Pinch to zoom";
+    font-size: 9px;
+  }
+  .view-tools {
+    bottom: 40px;
+    left: 16px;
+    gap: 3px;
+  }
+  .view-tools button,
+  .view-tools select {
+    min-height: 44px;
+  }
+  .equipment-label {
+    font-size: 8px;
+    padding: 4px;
+  }
+  .equipment-label small {
+    font-size: 7px;
+  }
+  .inspector {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    overflow: visible;
+    padding: 24px;
+  }
+  .inspector-heading h2 {
+    font-size: 28px;
+    margin: 9px 0 11px;
+  }
+  .inspector-heading > p:last-child {
+    font-size: 13px;
+  }
+  .transport {
+    margin-top: 19px;
+  }
+  .transport button {
+    min-height: 44px;
+  }
+  .path-section select {
+    font-size: 16px;
+    min-height: 46px;
+  }
+  .path-section {
+    margin-top: 18px;
+  }
+  .display-options {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .display-options label {
+    min-height: 44px;
+  }
+  .page-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 17px 0 22px;
+    gap: 8px 20px;
+  }
+  .evidence-note summary {
+    min-height: 44px;
+  }
+  .speed-row input {
+    height: 24px;
+  }
+  .stage .view-tools select {
+    font-size: 12px;
+  }
+  dialog {
+    padding: 24px 20px;
+  }
+  .dialog-top h2 {
+    font-size: 23px;
+  }
+  .dialog-top button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  #holds summary {
+    padding: 7px 0;
+  }
+  .path-section label {
+    font-size: 10px;
+  }
+  .view-tools button {
+    width: 44px;
+  }
+  .evidence-note .text-button {
+    min-height: 44px;
+  }
+  .scene-error a {
+    padding: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
